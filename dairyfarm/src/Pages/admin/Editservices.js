@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_PATH } from "../../API_PATH";
 
 export default function Editservices() {
   const params = useParams();
@@ -15,8 +16,7 @@ export default function Editservices() {
 
   const productsubmit = () =>
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/updateservice.php",
+      .post(`${API_PATH}/updateservice.php`,
         {
           id: service.id,
           name: service.name,

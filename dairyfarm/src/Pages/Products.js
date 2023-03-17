@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function Products() {
   const [product, setProduct] = useState([]);
@@ -24,7 +25,7 @@ export default function Products() {
 
   const allprod = async () => {
     axios
-      .get("http://localhost/react/dairyfarm/dairyfarm/api/allup.php")
+      .get(`${API_PATH}/allup.php`)
       .then((res) => {
         setProduct(res.data.datas.pr);
       });

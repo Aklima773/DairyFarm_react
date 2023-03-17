@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_PATH } from "../../API_PATH";
 
 export default function Editmembers() {
   const params = useParams();
@@ -15,8 +16,7 @@ export default function Editmembers() {
 
   const memberssubmit = () =>
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/updatemembers.php",
+      .post(`${API_PATH}/updatemembers.php`,
         {
           id: members.id,
           name: members.name,
@@ -37,7 +37,7 @@ export default function Editmembers() {
   };
   const productone = (id) =>
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/getmembers.php", {
+      .post(`${API_PATH}/getmembers.php`, {
         id: id,
       })
       .then((res) => {

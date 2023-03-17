@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_PATH } from "../API_PATH";
 
 export default function Orderplace() {
   const params = useParams();
@@ -14,7 +15,8 @@ export default function Orderplace() {
   };
   const productsubmit = () =>
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/placedorder.php", {
+      .post(
+        `${API_PATH}/placeorder.php`, {
         id: order.id,
         username: order.username,
         name: order.name,
@@ -36,7 +38,8 @@ export default function Orderplace() {
   };
   const productone = (id) =>
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/getpro.php", {
+      .post(
+        `${API_PATH}/getpro.php`, {
         id: id,
       })
       .then((res) => {

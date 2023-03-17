@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Allorders() {
     
@@ -54,7 +55,7 @@ export default function Allorders() {
 
   const allorders = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/allorders.php")
+      .get(`${API_PATH}/allorders.php`)
       .then((res) => {
         setOrders(res.data.datas.pr);
       });
@@ -68,7 +69,7 @@ export default function Allorders() {
   };
   const delprod = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/delorders.php", {
+      .post(`${API_PATH}/delorders.php`, {
         id: id,
       })
       .then((res) => {
@@ -81,7 +82,7 @@ export default function Allorders() {
 
   const deliver = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/deliver.php", {
+      .post(`${API_PATH}/deliver.php`, {
         id: id,
       })
       .then((res) => {

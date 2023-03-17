@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Getup() {
   const [product, setProduct] = useState([]);
@@ -25,7 +26,7 @@ export default function Getup() {
 
   const allprod = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/allup.php")
+      .get(`${API_PATH}/allup.php`)
       .then((res) => {
         setProduct(res.data.datas.pr);
       });
@@ -36,7 +37,7 @@ export default function Getup() {
 
   const delprod = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/delproduct.php", {
+      .post(`${API_PATH}/delproduct.php`, {
         id: id,
       })
       .then((res) => {

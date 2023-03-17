@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function AddnewProduct() {
   const navigate = useNavigate();
@@ -37,8 +38,7 @@ export default function AddnewProduct() {
     datas.append("mydata1", photoinfo.file);
 
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/newupload.php",
+      .post(`${API_PATH}/newupload.php`,
 
         datas,
         { headers: { "content-type": "multipart/form-data" } }

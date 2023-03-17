@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Getuserlist() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ export default function Getuserlist() {
   );
   const allservice = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/allservices.php")
+      .get(`${API_PATH}/allservices.php`)
       .then((res) => {
         setUserlist(res.data.datas.pr);
       });

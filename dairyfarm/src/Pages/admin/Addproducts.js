@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API_PATH } from "../../API_PATH";
 
 export default function Addproducts() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ export default function Addproducts() {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/addproducts.php", {
+      .post(`${API_PATH}/addproducts.php`, {
         pname: product.name,
         pdetails: product.details,
         pprice: product.price,

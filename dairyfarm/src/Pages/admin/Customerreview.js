@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Customerreview() {
   const [review, setReview] = useState([]);
@@ -13,7 +14,7 @@ export default function Customerreview() {
 
   const allreview = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/allreview.php")
+      .get(`${API_PATH}/allreview.php`)
       .then((res) => {
         setReview(res.data.datas.pr);
       });
@@ -24,7 +25,7 @@ export default function Customerreview() {
   };
   const delreview = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/delreview.php", {
+      .post(`${API_PATH}/delreview.php`, {
         id: id,
       })
       .then((res) => {

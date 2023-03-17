@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function Placedorder() {
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ export default function Placedorder() {
 
     axios
       .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/orderplace.php",
+        `${API_PATH}/orderplace.php`
+        ,
         info
       )
       .then((res) => {

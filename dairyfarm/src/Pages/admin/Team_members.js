@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 export default function Team_members() {
   const [team, setTeam] = useState([]);
 
@@ -12,7 +13,7 @@ export default function Team_members() {
 
   const allmem = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/allmembers.php")
+      .get(`${API_PATH}/allmembers.php`)
       .then((res) => {
         setTeam(res.data.datas.teamm);
       });
@@ -23,7 +24,7 @@ export default function Team_members() {
   };
   const delmem = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/delmem.php", {
+      .post(`${API_PATH}/delmem.php`, {
         id: id,
       })
       .then((res) => {

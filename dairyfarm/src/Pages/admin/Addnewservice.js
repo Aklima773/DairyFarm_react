@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Addnewservice() {
   const navigate = useNavigate();
@@ -38,8 +39,7 @@ export default function Addnewservice() {
     datas.append("mydata1", serviceinfo.file);
 
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/serviceupload.php",
+      .post(`${API_PATH}/serviceupload.php`,
 
         datas,
         { headers: { "content-type": "multipart/form-data" } }

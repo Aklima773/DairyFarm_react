@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function Getservices() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export default function Getservices() {
   }, []);
   const allservice = async () => {
     axios
-      .get("http://localhost/react/dairyfarm/dairyfarm/api/allservices.php")
+      .get(`${API_PATH}/allservices.php`)
       .then((res) => {
         setService(res.data.datas.pr);
       });

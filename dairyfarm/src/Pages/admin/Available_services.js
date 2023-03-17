@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Available_services() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function Available_services() {
 
   const allservice = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/allservices.php")
+      .get(`${API_PATH}/allservices.php`)
       .then((res) => {
         setService(res.data.datas.pr);
       });
@@ -36,7 +37,7 @@ export default function Available_services() {
   };
   const delprod = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/delservices.php", {
+      .post(`${API_PATH}/delservices.php`, {
         id: id,
       })
       .then((res) => {

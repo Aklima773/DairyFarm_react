@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,8 +20,7 @@ export default function Login() {
     e.preventDefault();
     //console.log(user);
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/adminlogin.php",
+      .post(`${API_PATH}/adminlogin.php`,
         user
       )
       .then((res) => {

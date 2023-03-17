@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_PATH } from "../../API_PATH";
 
 export default function Editproducts() {
   const params = useParams();
@@ -15,8 +16,7 @@ export default function Editproducts() {
 
   const productsubmit = () =>
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/updateproduct.php",
+      .post(`${API_PATH}/updateproduct.php`,
         {
           id: product.id,
           pname: product.name,
@@ -38,7 +38,7 @@ export default function Editproducts() {
   };
   const productone = (id) =>
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/getproduct.php", {
+      .post(`${API_PATH}/getproduct.php`, {
         id: id,
       })
       .then((res) => {

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function GetOrders() {
   const [orders, setOrders] = useState([]);
@@ -21,7 +22,8 @@ export default function GetOrders() {
 
   const allorders = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/getorders.php")
+      .get(
+        `${API_PATH}/getorders.php`)
       .then((res) => {
         setOrders(res.data.data.product);
       });
@@ -32,7 +34,7 @@ export default function GetOrders() {
 
   const delprod = async (id) => {
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/delorder.php", {
+      .post(`${API_PATH}/delorder.php`, {
         id: id,
       })
       .then((res) => {

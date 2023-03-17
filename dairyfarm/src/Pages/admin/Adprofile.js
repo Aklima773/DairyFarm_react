@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Adprofile() {
   const navigate = useNavigate();
@@ -35,8 +36,7 @@ export default function Adprofile() {
     datas.append("mydata1", profileinfo.file);
 
     axios
-      .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/adprofile.php",
+      .post(`${API_PATH}/adprofile.php`,
 
         datas,
         { headers: { "content-type": "multipart/form-data" } }

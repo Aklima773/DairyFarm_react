@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function Registration() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Registration() {
     e.preventDefault();
     console.log(info);
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/register.php", info)
+      .post(`${API_PATH}/register.php`, info)
       .then((res) => {
         if (res.data) {
           if (res.data.empty) {

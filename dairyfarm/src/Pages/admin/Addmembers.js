@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { API_PATH } from "../../API_PATH";
 
 export default function Addmembers() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export default function Addmembers() {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/Dairyfarm_react/dairyfarm/api/addmem.php", {
+      .post(`${API_PATH}/addmem.php`, {
         name: members.name,
         designation: members.designation,
         Activity: members.Activity,

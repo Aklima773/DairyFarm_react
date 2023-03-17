@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 export default function Userlogin() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -19,7 +20,7 @@ export default function Userlogin() {
     //console.log(user);
     axios
       .post(
-        "http://localhost/Dairyfarm_react/dairyfarm/api/userlogin.php",
+        `${API_PATH}/userlogin.php`,
         user
       )
       .then((res) => {

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../API_PATH";
 
 export default function Ourteam() {
   const [allmem, setMem] = useState([]);
@@ -13,7 +14,7 @@ export default function Ourteam() {
 
   const allmembers = async () => {
     axios
-      .get("http://localhost/react/dairyfarm/dairyfarm/api/allmem.php")
+      .get(`${API_PATH}/allmem.php`)
       .then((res) => {
         setMem(res.data.datas.pr);
       });

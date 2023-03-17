@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_PATH } from "../../API_PATH";
 
 export default function Profileview() {
   const [product, setProduct] = useState([]);
@@ -12,7 +13,7 @@ export default function Profileview() {
 
   const allprod = async () => {
     axios
-      .get("http://localhost/Dairyfarm_react/dairyfarm/api/profileview.php")
+      .get(`${API_PATH}/profileview.php`)
       .then((res) => {
         setProduct(res.data.data.product);
       });
